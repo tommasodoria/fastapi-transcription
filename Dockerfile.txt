@@ -1,0 +1,28 @@
+# Base image con Python e supporto per PyTorch + FFmpeg
+FROM python:3.10-slim
+
+# Evita prompt interattivi
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Installa FFmpeg e altre dipendenze di sistema
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Crea cartella di lavoro
+WORKDIR /app
+
+# Copia i file locali
+COPY . .
+
+# Installa le dipendenze Python
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Esponi la porta (Render userà $PORT)
+EXPOSE 8000
+
+# Comando per avviare l'app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
