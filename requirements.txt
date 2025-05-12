@@ -1,5 +1,0 @@
-fastapi==0.115.2
-uvicorn[standard]==0.29.0
-httpx==0.28.1
-deep-translator==1.11.4
-openai-whisper @ git+https://github.com/openai/whisper.git@517a43ecd132a2089d85f4ebc044728a71d49f6e
