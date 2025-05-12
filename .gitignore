@@ -1,0 +1,28 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# File di configurazione locali
+*.env
+*.local
+*.sqlite3
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# Files creati da editor (es. VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Cache di pip
+pip-wheel-metadata/
